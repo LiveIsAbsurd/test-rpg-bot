@@ -4,18 +4,10 @@ const bot = new TGbot(token, {polling: true});
 
 const sessions = {};
 
-const createMap = (heroPosition, size = [20, 20]) => {
+const createMap = (heroPosition, size = [10, 10]) => {
     const newMap = [];
     for (let y = 0; y < size[0]; y++) {
-        if (y === 0) {
-            let end = [];
-
-            for (let x = 0; x < size[1]; x++) {
-                end.push('⬛️')
-            }
-
-            newMap.push(end);
-        } else if (y === size[0] - 1) {
+        if (y === 0 || y === size[0] - 1) {
             let end = [];
 
             for (let x = 0; x < size[1]; x++) {
